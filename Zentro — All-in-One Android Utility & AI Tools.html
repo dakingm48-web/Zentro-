@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zentro — All-in-One Android Utility &amp; AI Tools</title>
+<meta name="description" content="Explore Zentro, an all-in-one utility app featuring convenient Android tools, AI-powered assistance, productivity features, file utilities, and supported integrations.">
+<meta name="keywords" content="Zentro All-in-One Utility App, Android Utility Tools, AI Tools for Android, Smartphone Productivity Tools, File Management Utilities, QR Scanner and Productivity App">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%23000'/%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%2322d3ee' stroke-width='4'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap">
+<style>
+:root{--bg:#02060a;--card:#08121a;--line:#17303a;--tx:#e8eef2;--mut:#8497a3;--cy:#22d3ee;--vi:#8b7cff;--bl:#4f8cff;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(70px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.65 Outfit,"Segoe UI",system-ui,Roboto,sans-serif;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.bg i{position:absolute;width:520px;height:520px;border-radius:50%;filter:blur(110px);opacity:.16;animation:drift 22s ease-in-out infinite alternate}
+.bg i:nth-child(1){background:var(--cy);top:-160px;left:-120px}
+.bg i:nth-child(2){background:var(--vi);bottom:-200px;right:-140px;animation-delay:-8s}
+@keyframes drift{to{transform:translate(90px,70px) scale(1.15)}}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--cy);outline-offset:3px;border-radius:8px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+h1,h2,h3{margin:0 0 .5em;line-height:1.15;font-weight:500;letter-spacing:-.01em}
+h1{font-size:clamp(2rem,6vw,3.4rem)}h2{font-size:clamp(1.7rem,4.5vw,2.6rem);text-align:center}h3{font-size:1.1rem}
+p{margin:0 0 1em;color:var(--mut)}
+section{padding:72px 0}
+.sub{max-width:560px;margin:0 auto 34px;text-align:center}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(2,6,10,.82);backdrop-filter:blur(14px);border-bottom:1px solid #0f1d25}
+nav{display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:600;font-size:1.15rem}
+.dot{width:26px;height:26px;border-radius:50%;border:4px solid var(--cy);box-shadow:0 0 14px rgba(34,211,238,.6),inset 0 0 8px rgba(139,124,255,.6)}
+.links{display:flex;gap:22px;font-size:.92rem;color:var(--mut)}.links a:hover{color:var(--cy)}
+.btn{display:inline-block;padding:12px 26px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--tx);font:inherit;font-weight:500;cursor:pointer;transition:transform .25s,box-shadow .25s,border-color .25s}
+.btn:hover{transform:translateY(-2px);border-color:var(--cy);box-shadow:0 0 22px rgba(34,211,238,.25)}
+.btn.p{background:linear-gradient(135deg,#1aa8c4,#6d7cff);border-color:transparent;color:#fff}
+.hero{padding:44px 0 20px;text-align:center}
+.orb{display:block;position:relative;width:min(290px,70vw);aspect-ratio:1;margin:0 auto 34px}
+.r{position:absolute;inset:0;border:9px solid;border-color:#22d3ee #5b8cff #8b7cff #22d3ee;filter:blur(.8px) drop-shadow(0 0 16px rgba(34,211,238,.55));animation:morph 9s ease-in-out infinite,spin 13s linear infinite}
+.r:nth-child(2){inset:7px;border-width:5px;border-color:#8b7cff #22d3ee #4f8cff #7dd3fc;opacity:.85;animation-duration:12s,9s;animation-direction:alternate,reverse}
+.r:nth-child(3){inset:14px;border-width:3px;border-color:#22d3ee #8b7cff #22d3ee #4f8cff;opacity:.7;animation-duration:7s,16s}
+@keyframes morph{0%,100%{border-radius:62% 38% 56% 44%/48% 62% 38% 52%}50%{border-radius:40% 60% 42% 58%/60% 40% 60% 40%}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.core{position:absolute;inset:24%;border-radius:50%;background:radial-gradient(#050d12,#000);border:2px solid #1b7f93;display:grid;place-items:center;font-weight:500;font-size:1.1rem;animation:pulse 3.2s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 0 34px rgba(34,211,238,.35)}}
+.hero p{max-width:540px;margin:0 auto 22px;font-size:1.05rem}
+.cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.grad{background:linear-gradient(90deg,var(--cy),var(--vi));-webkit-background-clip:text;background-clip:text;color:transparent}
+.dash{max-width:540px;margin:56px auto 0}
+.dash h2{font-size:2.6rem;font-weight:400;color:#cfd8de;margin-bottom:22px}
+.g{display:grid;grid-template-columns:1fr 1fr;gap:14px;text-align:left}.col{display:flex;flex-direction:column;gap:14px}
+.c{border:1.5px solid var(--line);border-radius:28px;background:var(--card);padding:20px}
+.wea{background:#0d0a22;border-color:#2c2559;flex:1.3;display:flex;flex-direction:column;justify-content:space-between;min-height:200px}
+.wea b{font-size:1.9rem;font-weight:500}.wea small{color:var(--mut);margin-left:6px}
+.chip{display:inline-block;padding:3px 12px;border-radius:12px;background:#241f4a;color:#b3a8ff;font-size:.78rem;font-weight:600}
+.lab{font-size:1.4rem;color:var(--vi)}
+.af{border-color:#3b6cf0;background:#050b12;display:flex;flex-direction:column;justify-content:space-between;min-height:130px;transition:box-shadow .3s}
+.af:hover{box-shadow:0 0 28px rgba(79,140,255,.35)}
+.af h3{color:var(--cy);font-size:1.3rem}.af p{margin:0;font-size:.85rem}
+.inf{flex:1;border-color:#14323c;display:flex;flex-direction:column;justify-content:space-between;min-height:180px;color:var(--cy);font-size:1.4rem}
+.rings{display:grid;grid-template-columns:1fr 1fr;gap:10px 4px;text-align:center;font-size:.8rem}
+.rings svg{display:block;margin:0 auto;width:100%;max-width:76px;transform:rotate(-90deg)}
+.rings circle{fill:none;stroke-width:5;stroke-linecap:round}
+.rings .t{stroke:#1c2a31}
+.rings .v{stroke-dasharray:0 100;transition:stroke-dasharray 1.8s cubic-bezier(.2,.8,.2,1)}
+.ring{position:relative}.ring em{position:absolute;top:0;left:0;right:0;aspect-ratio:1;max-width:76px;margin:auto;display:grid;place-items:center;font-style:normal;font-weight:600;font-size:.78rem}
+.note{text-align:center;font-size:.8rem;margin-top:14px}
+.cats{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+details.c{padding:0;transition:border-color .3s}
+details.c:hover,details[open].c{border-color:#2a6f80}
+summary{cursor:pointer;list-style:none;padding:18px 22px;display:flex;align-items:center;gap:14px;font-weight:500}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";margin-left:auto;color:var(--cy);font-size:1.4rem;transition:transform .3s}
+details[open]>summary::after{transform:rotate(45deg)}
+.ic{font-size:1.5rem}
+.in{padding:0 22px 20px}
+.warn{font-size:.86rem;border-left:2px solid var(--cy);padding:4px 12px;margin:0 0 14px;color:#9fc4cf}
+.in ul{list-style:none;margin:0;padding:0}
+.in li{padding:9px 0;border-top:1px solid #0f1f27;font-size:.92rem;color:var(--mut)}
+.in li b{display:block;color:var(--tx);font-weight:500}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;text-align:center}
+.steps .ic{display:block;font-size:2rem;margin-bottom:8px}
+.steps .c p{margin:0}
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px;max-width:760px;margin:0 auto}
+.plans ul{margin:0 0 18px;padding-left:18px;color:var(--mut);font-size:.94rem}
+.hot{border-color:var(--vi);box-shadow:0 0 36px rgba(139,124,255,.18)}
+.price{color:var(--cy);font-size:.9rem;margin-bottom:10px}
+.legal{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:8px}
+.legal a{padding:9px 16px;border:1.5px solid var(--line);border-radius:999px;font-size:.88rem}.legal a:hover{border-color:var(--cy)}
+.pg{padding:0 20px}
+.gal{display:flex;gap:14px;overflow-x:auto;padding:6px 4px 16px;scroll-snap-type:x mandatory}
+.gal .c{flex:0 0 150px;height:210px;scroll-snap-align:start;display:flex;flex-direction:column;justify-content:space-between;font-size:.88rem;text-align:left;border-radius:26px}
+.gal .c span{font-size:1.8rem}.gal .c small{color:var(--mut);font-size:.72rem}
+.faq details.c{margin-bottom:10px;border-radius:20px}
+.faq p{margin:0;padding:0 22px 18px;font-size:.94rem}
+.wait{text-align:center;padding:44px 22px;border-radius:32px;border:1.5px solid #2a6f80;background:radial-gradient(circle at 50% 0,rgba(34,211,238,.12),transparent 60%),#050c12}
+.wait form{display:grid;grid-template-columns:1fr auto;gap:10px;max-width:460px;margin:18px auto 0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+form{display:grid;gap:10px}
+input,textarea{width:100%;padding:13px 16px;border-radius:16px;border:1.5px solid var(--line);background:#050d13;color:var(--tx);font:inherit}
+input:focus,textarea:focus{border-color:var(--cy);outline:none}
+.ph{list-style:none;padding:0;margin:0}.ph li{margin-bottom:10px;color:var(--mut);font-size:.95rem}.ph b{color:var(--tx);font-weight:500}.ph a{color:var(--cy)}
+.msg{font-size:.88rem;color:var(--cy);min-height:1.3em}
+footer{border-top:1px solid #0f1d25;padding:40px 0 28px;margin-top:20px}
+.fg{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:24px}
+.fg h3{font-size:.95rem}.fg a{display:block;color:var(--mut);font-size:.9rem;margin-bottom:6px}.fg a:hover{color:var(--cy)}
+.copy{margin-top:26px;color:var(--mut);font-size:.85rem}
+.js .rv{opacity:0;transform:translateY(18px);transition:opacity .8s,transform .8s}
+.js .rv.show{opacity:1;transform:none}
+@media(max-width:820px){.links{display:none}.two,.fg{grid-template-columns:1fr}.cats{grid-template-columns:1fr}section{padding:54px 0}.wait form{grid-template-columns:1fr}.dash h2{font-size:2.2rem}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.js .rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"><i></i><i></i></div>
+<header><div class="wrap"><nav aria-label="Main">
+<a class="logo" href="#top"><span class="dot"></span>Zentro</a>
+<div class="links"><a href="#features">Features</a><a href="#plans">Plans</a><a href="#privacy">Privacy</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></div>
+<a class="btn p" href="#waitlist" style="padding:8px 18px">Join waitlist</a>
+</nav></div></header>
+
+<main id="top">
+<section class="hero"><div class="wrap">
+<a class="orb" href="#waitlist" aria-label="Tap to Chat — AI assistant preview"><span class="r"></span><span class="r"></span><span class="r"></span><span class="core">Tap to Chat</span></a>
+<h1>Your Entire Digital Toolkit. <span class="grad">One Powerful App.</span></h1>
+<p>Discover a smarter way to use your smartphone. Zentro brings AI-powered tools, file management, productivity features, device utilities, and more together in one convenient experience.</p>
+<div class="cta"><a class="btn p" href="#about">Explore Zentro</a><a class="btn" href="#features">Explore All Features</a></div>
+
+<div class="dash" id="about">
+<h2>Explore</h2>
+<div class="g"><div class="col">
+<div class="c wea"><div><span style="color:#b3a8ff">☾</span> <span class="chip">NIGHT</span></div><div><b>27°C</b><small>Mainly Clear</small></div><div class="lab">Weather</div></div>
+<div class="c inf"><span style="color:#8497a3">⌕</span><span>Information</span></div></div>
+<div class="col"><a class="c af" href="#features"><h3>All Features</h3><p>Every tool, one place</p></a>
+<div class="rings c">
+<div class="ring"><svg viewBox="0 0 40 40"><circle class="t" cx="20" cy="20" r="16" pathLength="100"/><circle class="v" data-p="94" stroke="#22d3ee" cx="20" cy="20" r="16" pathLength="100"/></svg><em>94%</em><div style="color:#22d3ee">Storage</div></div>
+<div class="ring"><svg viewBox="0 0 40 40"><circle class="t" cx="20" cy="20" r="16" pathLength="100"/><circle class="v" data-p="64" stroke="#10b981" cx="20" cy="20" r="16" pathLength="100"/></svg><em>64%</em><div style="color:#10b981">RAM</div></div>
+<div class="ring"><svg viewBox="0 0 40 40"><circle class="t" cx="20" cy="20" r="16" pathLength="100"/><circle class="v" data-p="21" stroke="#f59e0b" cx="20" cy="20" r="16" pathLength="100"/></svg><em>21%</em><div style="color:#f59e0b">Health</div></div>
+<div class="ring"><svg viewBox="0 0 40 40"><circle class="t" cx="20" cy="20" r="16" pathLength="100"/><circle class="v" data-p="75" stroke="#f59e0b" cx="20" cy="20" r="16" pathLength="100"/></svg><em>36°C</em><div style="color:#f59e0b">Normal</div></div>
+</div>
+</div></div>
+<p class="note">Concept preview of the Zentro home screen. Values shown are sample data.</p>
+</div>
+</div></section>
+
+<section id="features"><div class="wrap">
+<h2 class="rv">Explore All Features</h2>
+<p class="sub rv">Seven categories. Availability can vary by device, Android version and permissions.</p>
+<div class="cats" id="cats"></div>
+</div></section>
+
+<section><div class="wrap">
+<h2 class="rv">How Zentro Works</h2><p class="sub"></p>
+<div class="steps">
+<div class="c rv"><span class="ic">🧭</span><h3>Step 1: Explore</h3><p>Discover the tools you need from one organized dashboard.</p></div>
+<div class="c rv"><span class="ic">⚡</span><h3>Step 2: Use</h3><p>Open your preferred utility and complete everyday tasks with ease.</p></div>
+<div class="c rv"><span class="ic">💎</span><h3>Step 3: Upgrade Your Experience</h3><p>Explore additional premium features if and when you need them.</p></div>
+</div></div></section>
+
+<section><div class="wrap">
+<h2 class="rv">One App. Countless Possibilities.</h2>
+<p class="sub rv">Zentro is designed to simplify everyday digital tasks by bringing useful smartphone utilities and intelligent tools into one organized platform. Instead of switching between multiple applications, users can discover convenient tools from a single interface.</p>
+<div class="legal" id="goals"></div>
+</div></section>
+
+<section id="plans"><div class="wrap">
+<h2 class="rv">Free and Premium Plans</h2><p class="sub"></p>
+<div class="plans">
+<div class="c rv"><h3>Zentro Free</h3><ul><li>Access to available free tools</li><li>Core utility features</li><li>Basic productivity tools</li><li>Access to supported integrations</li><li>Optional advertisements, where applicable</li></ul><a class="btn" href="#waitlist">Get Started</a></div>
+<div class="c hot rv"><h3>Zentro Premium</h3><div class="price" data-edit="price">Pricing will be shown once finalized.</div><ul><li>Access to selected premium features</li><li>Enhanced AI capabilities, where available</li><li>An improved, more personalized experience</li><li>Additional tools and benefits as introduced</li></ul><a class="btn p" href="#waitlist">Explore Premium</a></div>
+</div>
+<p class="note">Available features depend on the selected plan, device compatibility, and service availability.</p>
+</div></section>
+
+<section><div class="wrap">
+<h2 class="rv">App Preview Gallery</h2><p class="sub">Concept previews. Screens may differ from the published app.</p>
+<div class="gal" id="gal"></div>
+</div></section>
+
+<section id="privacy"><div class="wrap"><div class="c rv" style="text-align:center;padding:36px 22px">
+<h2>Your Privacy Matters.</h2>
+<p class="sub" style="margin-bottom:18px">Zentro aims to provide a transparent and responsible digital experience. We explain the permissions our tools require and how information is handled.</p>
+<div class="legal"><a href="#" data-edit="privacy-url">Privacy Policy</a><a href="#" data-edit="terms-url">Terms of Service</a><a href="#" data-edit="perm-url">Permissions and Data Practices</a><a href="#" data-edit="third-url">Third-Party Services Disclosure</a><a href="#contact">Contact and Support</a></div>
+</div></div></section>
+
+<section id="faq"><div class="wrap faq" style="max-width:760px">
+<h2 class="rv">Frequently Asked Questions</h2><p class="sub"></p>
+<div id="faqs"></div>
+</div></section>
+
+<section id="waitlist"><div class="wrap"><div class="wait rv">
+<h2>Coming Soon to Android</h2>
+<p>Zentro hasn’t been published yet. Join the waitlist and we’ll let you know when it’s ready.</p>
+<form id="wf"><input type="email" required aria-label="Email address" placeholder="you@example.com"><button class="btn p" type="submit">Join the waitlist</button></form>
+<div class="msg" id="wm" role="status"></div>
+</div></div></section>
+
+<section id="contact"><div class="wrap two">
+<div class="rv"><h2 style="text-align:left">Contact and Support</h2><p>Questions, partnerships or feedback? Send a message.</p>
+<ul class="ph">
+<li><b>Phone:</b> <a href="tel:01783942534" data-edit="phone">01783942534</a></li>
+<li><b>Support:</b> <span data-edit="support-email">[support email — to be added]</span></li>
+<li><b>Business inquiries:</b> <span data-edit="biz-email">[business email — to be added]</span></li>
+<li><b>Partnerships:</b> <span data-edit="partner-email">[partnership email — to be added]</span></li>
+<li><b>Social:</b> <span data-edit="social">[social links — to be added]</span></li></ul></div>
+<form id="cf" class="rv"><input required aria-label="Name" placeholder="Name"><input type="email" required aria-label="Email address" placeholder="Email address"><input required aria-label="Subject" placeholder="Subject"><textarea rows="5" required aria-label="Message" placeholder="Message"></textarea><button class="btn p" type="submit">Send message</button><div class="msg" id="cm" role="status"></div></form>
+</div></section>
+</main>
+
+<footer><div class="wrap"><div class="fg">
+<div><a class="logo" href="#top"><span class="dot"></span>Zentro</a><p style="margin-top:10px">Everything You Need. One App.</p></div>
+<div><h3>Zentro</h3><a href="#about">About Zentro</a><a href="#features">Explore Features</a><a href="#plans">Premium</a></div>
+<div><h3>Support</h3><a href="#faq">Help Center</a><a href="#contact">Contact Us</a></div>
+<div><h3>Legal</h3><a href="#privacy">Privacy Policy</a><a href="#privacy">Terms of Service</a><a href="#privacy">Third-Party Disclosures</a></div>
+</div><div class="copy">© <span id="yr">2026</span> Zentro. All rights reserved.</div></div></footer>
+
+<script>
+document.documentElement.className="js";
+/* ===== Editable content ===== */
+var GOALS=["Simplify everyday smartphone tasks","Make useful tools easier to access","Improve productivity and convenience","Organized, intuitive experience","Optional premium features where available"];
+var CATS=[
+["🤖","AI and Smart Tools","AI results can be wrong. No claims of perfect accuracy or guaranteed results.",[["AI Assistant","Ask questions and get help with everyday tasks."],["AI Writing and Code Assistant","Draft text and get help with code."],["AI Link Safety Checker","Get an AI-based check on links before opening them."],["AI Content Detection Tool","Estimate whether text may be AI-generated."],["AI Productivity Assistance","Suggestions to plan and organize your work."]]],
+["📱","Phone Optimization and Device Utilities","Android restrictions may limit some device-monitoring and cleaning abilities. No guaranteed speed gains or virus removal.",[["Junk File Cleaner","Find unneeded files you can choose to remove."],["Storage Analyzer","See what is using your storage."],["RAM and Device Status Monitor","View memory and device status where Android allows."],["Phone Temperature Monitoring","Check temperature readings where supported."],["Network Speed Monitor","Check your connection speed."],["Developer Utilities","Handy tools for developers and power users."]]],
+["📁","File Management and Recovery","Photo recovery depends on device storage, backups, permissions and available methods. Recovery of every deleted file can’t be guaranteed.",[["Find My File Scanner","Search your device for files you’ve lost track of."],["File Discovery and Organization","Browse and organize files in one place."],["Image-to-Text Converter","Pull text out of images."],["Old Photo Recovery Assistant","Guided help to look for older photos."],["Phone-to-Phone Transfer Tools","Move content between devices."]]],
+["✅","Productivity and Everyday Tools","",[["Smart Calculator","Quick everyday calculations."],["Alarm Clock","Set alarms for any time."],["Reminders and Do-It-Later","Save tasks and get reminded later."],["QR Code Scanner and Generator","Scan codes and create your own."],["Notes and Quick Actions","Jot things down and act fast."],["Voice Assistant","Hands-free help with your voice."],["Keyboard Utilities","Extra typing helpers."]]],
+["📷","Camera, Images and Media","TV and media discovery is offered only where legally supported.",[["Document Scanner","Scan paper documents with your camera."],["OCR Text Extraction","Turn scanned text into editable text."],["Video Stabilization Tools","Help smooth shaky video."],["Image Utilities","Simple tools for working with images."],["TV and Media Discovery","Find media, where legally supported."]]],
+["🛠️","Advanced Android Utilities","These need specific Android versions, permissions or accessibility access. Not every feature works on every device.",[["App Cloner","Run a second copy of an app, where supported."],["Auto Clicker","Automate taps, where permitted."],["Ad-Blocking Tools","Reduce ads, where technically and legally supported."],["App Diagnostics","Look into how your apps behave."],["Device Migration Assistant","Help with moving to a new device."]]],
+["🌐","Discover Online Earning Opportunities","Explore eligible third-party survey opportunities and reward programs directly through Zentro, where available. Eligibility, availability, rewards and payment methods depend on the provider, your location and its terms. No guaranteed earnings or fixed income. Only integrated, approved providers are shown.",[["Third-Party Surveys","Survey opportunities from participating providers."],["Rewarded Activities","Rewarded tasks from partners."],["Approved Partner Offers","Offers from approved partners."],["Simple Discovery","One place to find eligible opportunities."]]]
+];
+var GAL=[["Home Dashboard","🏠"],["AI Assistant","🤖"],["Utility Categories","🧰"],["Storage and Device Status","💾"],["QR Scanner","▦"],["Survey and Rewards Discovery","🌐"],["Premium Features","💎"]];
+var FAQ=[["What is Zentro?","Zentro is an all-in-one utility application designed to bring convenient digital tools, productivity features, and supported AI services into one platform."],["Is Zentro free?","Zentro offers available free tools, with optional premium features if supported by the current release."],["Does Zentro support Android?","The app is intended for Android devices. Compatibility depends on the feature, operating system version, and device capabilities."],["Can I earn money with Zentro?","Eligible users may find third-party survey or reward opportunities when these integrations are available. Participation does not guarantee earnings."],["Can Zentro recover permanently deleted photos?","Recovery depends on the device, backups, storage conditions, and available recovery methods. Successful recovery cannot be guaranteed."],["Does Zentro require special permissions?","Some features may require permissions to function. Only grant permissions needed for the tools you choose to use."],["Is my data safe?","Review Zentro’s Privacy Policy for details about information collection, processing, storage, and third-party services."],["How can I contact support?","Users can contact the Zentro support team using the official contact form or published support email."],["When will new features arrive?","New features may be introduced as they are developed, tested, and released."]];
+/* ===== Render ===== */
+function $(i){return document.getElementById(i)}
+$("goals").innerHTML=GOALS.map(function(g){return '<a>'+g+'</a>'}).join("");
+$("cats").innerHTML=CATS.map(function(c){return '<details class="c rv"><summary><span class="ic">'+c[0]+'</span>'+c[1]+'</summary><div class="in">'+(c[2]?'<p class="warn">'+c[2]+'</p>':'')+'<ul>'+c[3].map(function(f){return '<li><b>'+f[0]+'</b>'+f[1]+'</li>'}).join("")+'</ul></div></details>'}).join("");
+$("gal").innerHTML=GAL.map(function(g){return '<div class="c"><span>'+g[1]+'</span><div>'+g[0]+'<br><small>Concept preview</small></div></div>'}).join("");
+$("faqs").innerHTML=FAQ.map(function(f){return '<details class="c"><summary>'+f[0]+'</summary><p>'+f[1]+'</p></details>'}).join("");
+$("yr").textContent=new Date().getFullYear();
+function hook(f,m,t){$(f).addEventListener("submit",function(e){e.preventDefault();$(m).textContent=t;e.target.reset()})}
+hook("wf","wm","Thanks! Form submission isn’t connected yet — add your endpoint to activate it.");
+hook("cf","cm","Thanks! Form submission isn’t connected yet — add your support endpoint to activate it.");
+/* Reveal + ring fill */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("show");io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll(".rv").forEach(function(el){io.observe(el)});
+setTimeout(function(){document.querySelectorAll(".v").forEach(function(c){c.style.strokeDasharray=c.dataset.p+" 100"})},500);
+</script>
+</body>
+</html>
